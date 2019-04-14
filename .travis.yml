@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run angelgoez/simple-react-app npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "simple-react-app"
+  env: "SimpleReactApp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-431017907402"
+  bucket_path: "simple-react-app"
+  on:
+    branch: master
